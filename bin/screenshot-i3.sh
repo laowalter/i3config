@@ -2,6 +2,8 @@
 # https://github.com/oskar-ka/screenshot-i3
 # screenshots stuff
 # TODO: docs
+#
+# need to emerge xclip and imagemagick
 
 function help_and_exit {
     if [ -n "${1}" ]; then
