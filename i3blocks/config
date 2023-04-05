@@ -32,8 +32,7 @@ interval=3600
 color=#5ea6e6
 
 [aqi]
-# command=echo  `~/.config/i3/bin/aqi | grep '北京'|awk '{$8=substr($8, 1, length($8)-1) ; print $2" "$3" / "$7 $8}'
-command=echo  `~/.config/i3/bin/aqi |grep 北京|awk '{ print $3" ("$7$8}'`
+command=echo  `~/.config/i3/bin/aqi awk '{print $1 $4$5}'`
 interval=900
 color=#50cf28
 
