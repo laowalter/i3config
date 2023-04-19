@@ -33,7 +33,7 @@ color=#5ea6e6
 
 [aqi]
 command=echo  `~/.config/i3/bin/aqi awk '{print $1 $4$5}'`
-interval=900
+interval=300
 color=#50cf28
 
 [temperature]
