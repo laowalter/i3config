@@ -55,9 +55,8 @@ exec --no-startup-id compton -b
 exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/wideWallpaper.png
 
 # exec --no-startup-id cairo-clock --class floating
-# for_window [class="floating"] floating enable
-exec --no-startup-id cario-clock
-for_window [title="cairo-clock"] floating enable
+# exec --no-startup-id cario-clock
+# for_window [instance="cairo-clock" class="cario-clock"] floating enable
 
 
 # Use pactl to adjust volume in PulseAudio.
@@ -78,12 +77,19 @@ bindsym $mod+Return exec "GLFW_IM_MODULE=ibus kitty"
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+
+
+# vnpy need these two shortcut
+bindsym $mod+d exec --no-startup-id ~/work/tools/draw
+bindsym $mod+b exec "xterm -hold -e ~/work/strategies/RESEARCH/shortTerm/bt.sh"
+
+# bindsym $mod+b exec --no-startup-id  ~/work/strategies/RESEARCH/shortTerm/bt.sh
+
 bindsym $mod+p exec "rofi -modi drun,run -show drun -theme purple -show-icons"
 bindsym $mod+c exec "rofi -show calc -modi calc -no-show-match -no-sort -theme purple"
-
 
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
@@ -158,6 +164,8 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "0"
+
+exec --no-startup-id  i3-msg 'workspace 8; exec ~/.config/i3/bin/cairo-clock.sh'
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
