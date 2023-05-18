@@ -54,11 +54,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id compton -b
 exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/wideWallpaper.png
 
-# exec --no-startup-id cairo-clock --class floating
-# exec --no-startup-id cario-clock
-# for_window [instance="cairo-clock" class="cario-clock"] floating enable
-
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -83,8 +78,11 @@ bindsym $mod+Shift+q kill
 
 
 # vnpy need these two shortcut
-bindsym $mod+d exec --no-startup-id ~/work/tools/draw
-bindsym $mod+b exec "xterm -hold -e ~/work/strategies/RESEARCH/shortTerm/bt.sh"
+bindsym $mod+d exec --no-startup-id ~/work/tools/draw2
+bindsym $mod+b exec "xterm -hold -e ~/work/strategies/squeeze/walter/bt.sh"
+
+# bindsym $mod+r exec "xterm -hold -e --no-startup-id "ranger"
+bindsym $mod+r exec "kitty ranger"
 
 # bindsym $mod+b exec --no-startup-id  ~/work/strategies/RESEARCH/shortTerm/bt.sh
 
@@ -165,7 +163,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "0"
 
-exec --no-startup-id  i3-msg 'workspace 8; exec ~/.config/i3/bin/cairo-clock.sh'
+exec --no-startup-id  i3-msg 'workspace 1; exec ~/.config/i3/bin/cairo-clock.sh'
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -210,7 +208,7 @@ bindsym --release $mod+Ctrl+Shift+p exec "~/.config/i3/bin/screenshot-i3.sh ~/.s
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -233,13 +231,13 @@ mode "resize" {
         bindsym Up resize shrink height 1 px or 1 ppt
         bindsym Right resize grow width 1 px or 1 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+        # back to normal: Enter or Escape or $mod+R
         bindsym Return mode "default"
         bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+        bindsym $mod+Shift+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+Shift+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

@@ -63,6 +63,15 @@ command=echo   `~/.config/i3/bin/ipspeedonly.sh enp5s0`
 interval=once
 color=#91E78B
 
+[i3volume]
+label= 
+command=~/.config/i3-volume/volume output i3blocks
+interval=once
+signal=10
+color=#b8bb26
+separator_block_width=10
+markup=pango
+
 [disk]
 label= Free / 
 instance=/
