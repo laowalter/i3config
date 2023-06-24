@@ -37,7 +37,8 @@ interval=300
 color=#50cf28
 
 [temperature]
-command=echo ""  `sensors |grep -i package | awk '{print $4 }'`,`sensors |grep -i edge| awk '{print $2}'`
+#command=echo ""  `sensors |grep -i package | awk '{print $4 }'`,`sensors |grep -i edge| awk '{print $2}'`
+command=echo ""  `sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`,` nvidia-smi | grep -i 370W|awk '{print $3}'|rev |cut -c 2-|rev`°C
 interval=60
 color=#e65ea6
 
@@ -66,7 +67,7 @@ color=#91E78B
 [i3volume]
 label= 
 command=~/.config/i3-volume/volume output i3blocks
-interval=once
+interval=600
 signal=10
 color=#b8bb26
 separator_block_width=10
