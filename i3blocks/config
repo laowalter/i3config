@@ -36,3 +36,8 @@ color=#5ea6e6
 command=echo  `~/.config/i3/bin/aqi awk '{print $1 $4$5}'`
 interval=300
 color=#50cf28
+
+[restart]
+full_text=
+command=i3-msg -q restart
+color=#904084

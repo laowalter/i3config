@@ -60,8 +60,3 @@ label= Free /
 instance=/
 interval=300
 color=#f42f90
-
-[restart]
-full_text=
-command=i3-msg -q restart
-color=#904084

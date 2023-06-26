@@ -14,10 +14,8 @@ set $mod Mod4
 
 
 # set workspace position
-workspace 1 output DisplayPort-3
-workspace 5 output DisplayPort-2
-workspace 8 output DisplayPort-1
-workspace 0 output DisplayPort-0
+workspace 1 output DP-2
+workspace 5 output DP-4
 
 # set background
 #exec --no-startup-id feh --bg-scale /data/album/photos/2019/2019-810.jpg
@@ -52,7 +50,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Enable compton
 exec --no-startup-id compton -b
-exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/wideWallpaper.png
+exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/wallpaper2screen.png
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -243,9 +241,15 @@ bindsym $mod+Shift+r mode "resize"
 # finds out, if available)
 
 bar {
+    output DP-2
     font pango: Terminus, FontAwesome5Free
     # font pango:Exo2, FontAwesome5Free, FontAwesome5Brands, SymbolsNerdFont 13
     status_command i3blocks -c ~/.config/i3/i3blocks/config
     position top 
-    # mode hide
+}
+
+bar {
+     output DP-4
+     status_command i3blocks -c ~/.config/i3/i3blocks/config2
+     position top
 }
