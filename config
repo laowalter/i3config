@@ -18,6 +18,7 @@ workspace 1 output DP-2
 workspace 5 output DP-4
 
 # set background
+exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/wallpaper2screen.png
 #exec --no-startup-id feh --bg-scale /data/album/photos/2019/2019-810.jpg
 #exec --no-startup-id feh --bg-fill --randomize /data/album/photos/2013/*
 #exec --no-startup-id feh --background-color #191836
@@ -50,7 +51,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Enable compton
 exec --no-startup-id compton -b
-exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/wallpaper2screen.png
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -79,7 +79,6 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id ~/work/tools/draw2
 bindsym $mod+b exec "xterm -hold -e ~/work/strategies/squeeze/walter/bt.sh"
 
-# bindsym $mod+r exec "xterm -hold -e --no-startup-id "ranger"
 bindsym $mod+r exec "kitty ranger"
 
 # bindsym $mod+b exec --no-startup-id  ~/work/strategies/RESEARCH/shortTerm/bt.sh
@@ -161,7 +160,11 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "0"
 
-exec --no-startup-id  i3-msg 'workspace 1; exec ~/.config/i3/bin/cairo-clock.sh'
+# Turn off window title bar
+default_border pixel 1
+default_floating_border pixel 1
+
+exec --no-startup-id  i3-msg 'workspace 5; exec ~/.config/i3/bin/cairo-clock.sh'
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -241,15 +244,21 @@ bindsym $mod+Shift+r mode "resize"
 # finds out, if available)
 
 bar {
-    output DP-2
-    font pango: Terminus, FontAwesome5Free
-    # font pango:Exo2, FontAwesome5Free, FontAwesome5Brands, SymbolsNerdFont 13
-    status_command i3blocks -c ~/.config/i3/i3blocks/config
-    position top 
+        mode hide
+        hidden_state hide
+        modifier Mod
+        output DP-2
+        font pango: Terminus, FontAwesome5Free
+        status_command i3blocks -c ~/.config/i3/i3blocks/config
+        position top 
 }
 
 bar {
-     output DP-4
-     status_command i3blocks -c ~/.config/i3/i3blocks/config2
-     position top
+        mode hide
+        hidden_state hide
+        modifier Mod
+        output DP-4
+        font pango: Terminus, FontAwesome5Free
+        status_command i3blocks -c ~/.config/i3/i3blocks/config2
+        position top
 }
