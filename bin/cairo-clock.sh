@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-/usr/bin/cairo-clock -i -s -d -w 200 -h 200 -x 2351 -y 5&
+/usr/bin/cairo-clock -i -s -d -w 200 -h 200 -x 4276 -y 25&
 pid="$!"
 
 # Wait for the window to open and grab its window ID

@@ -11,11 +11,11 @@
 
 # set $mod Mod1
 set $mod Mod4
-
+set $mod1 Mod1
 
 # set workspace position
-workspace 1 output DP-2
-workspace 5 output DP-4
+workspace 1 output DP-0
+workspace 5 output DP-2
 
 # set background
 exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/wallpaper2screen.png
@@ -66,6 +66,7 @@ floating_modifier $mod
 # bindsym $mod+Return exec i3-sensible-terminal
 
 bindsym $mod+Return exec "GLFW_IM_MODULE=ibus kitty"
+bindsym $mod+x exec "LC_CTYPE=zh_CN.UTF-8 xterm -uc"
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -162,7 +163,9 @@ set $ws10 "0"
 
 # Turn off window title bar
 default_border pixel 1
+# default_border none
 default_floating_border pixel 1
+
 
 exec --no-startup-id  i3-msg 'workspace 5; exec ~/.config/i3/bin/cairo-clock.sh'
 
@@ -201,6 +204,12 @@ bindsym $mod+Ctrl+7 move container to workspace number $ws7; workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace number $ws8; workspace $ws8
 bindsym $mod+Ctrl+9 move container to workspace number $ws9; workspace $ws9
 bindsym $mod+Ctrl+0 move container to workspace number $ws10; workspace $ws10
+
+# move focused workspace between monitors
+bindsym $mod+Ctrl+Right move workspace to output right
+bindsym $mod+Ctrl+Left move workspace to output left
+
+bindsym $mod+Ctrl+r exec "~/.config/i3/bin/rotate.sh"
 
 ### Clipboard Screenshots
 bindsym --release $mod+Ctrl+p exec "~/.config/i3/bin/screenshot-i3.sh -s ~/.screenshot/"
@@ -244,20 +253,20 @@ bindsym $mod+Shift+r mode "resize"
 # finds out, if available)
 
 bar {
-        mode hide
-        hidden_state hide
-        modifier Mod
-        output DP-2
+        # mode hide
+        # hidden_state hide
+        # modifier Mod4
+        output DP-0
         font pango: Terminus, FontAwesome5Free
         status_command i3blocks -c ~/.config/i3/i3blocks/config
         position top 
 }
 
 bar {
-        mode hide
-        hidden_state hide
-        modifier Mod
-        output DP-4
+        # mode hide
+        # hidden_state hide
+        # modifier Mod4
+        output DP-2
         font pango: Terminus, FontAwesome5Free
         status_command i3blocks -c ~/.config/i3/i3blocks/config2
         position top
