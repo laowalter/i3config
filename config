@@ -19,9 +19,6 @@ workspace 5 output DP-2
 
 # set background
 exec --no-startup-id feh --bg-scale ~/.config/i3/wallpaper/wallpaper2screen.png
-#exec --no-startup-id feh --bg-scale /data/album/photos/2019/2019-810.jpg
-#exec --no-startup-id feh --bg-fill --randomize /data/album/photos/2013/*
-#exec --no-startup-id feh --background-color #191836
 
 # execute a bash command
 # xrandr and pluseaudio can not run its own but needs a shell, so add a bash in front.
@@ -77,7 +74,7 @@ bindsym $mod+Shift+q kill
 
 
 # vnpy need these two shortcut
-bindsym $mod+d exec --no-startup-id ~/work/tools/draw2
+bindsym $mod+d exec --no-startup-id ~/work/tools/draw2"
 bindsym $mod+b exec "xterm -hold -e ~/work/strategies/squeeze/walter/bt.sh"
 
 bindsym $mod+r exec "kitty ranger"
