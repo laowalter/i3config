@@ -169,7 +169,7 @@ exec --no-startup-id  i3-msg 'workspace 5; exec ~/.config/i3/bin/cairo-clock.sh'
 # next prev workspace
 
 bindsym $mod+Right workspace next
-bindsym $mod+Left workspace left
+bindsym $mod+Left workspace prev
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
