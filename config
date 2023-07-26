@@ -166,8 +166,10 @@ default_floating_border pixel 1
 
 exec --no-startup-id  i3-msg 'workspace 5; exec ~/.config/i3/bin/cairo-clock.sh'
 
-# next prev workspace
 
+# lock screen
+bindsym $mod+Ctrl+BackSpace exec "/usr/bin/i3lock-fancy-dualmonitor"
+# next prev workspace
 bindsym $mod+Right workspace next
 bindsym $mod+Left workspace prev
 # switch to workspace
