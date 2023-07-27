@@ -1,0 +1,62 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=20
+command=/usr/libexec/i3blocks/$BLOCK_NAME
+separator=true
+border_top=0
+border_left=0
+border_right=0
+border_bottom=4
+only_on_workspace=1
+
+
+[temperature]
+#command=echo ""  `sensors |grep -i package | awk '{print $4 }'`,`sensors |grep -i edge| awk '{print $2}'`
+command=echo ""  `sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`,` nvidia-smi | grep -i 370W|awk '{print $3}'|rev |cut -c 2-|rev`°C
+interval=60
+color=#e65ea6
+
+[memory]
+label=  (used): 
+interval=30
+command=echo `free -mh | awk '{print $3}' | tail -2 | head -1`/`free -mh | awk '{print $2}' | tail -2 | head -1`
+color=#12b4f6
+
+[cpuload]
+command=uptime|awk '{print " " $(NF-2) $(NF-1) $NF}'
+interval=60
+color=#f22d0b
+
+# Fetch the public IP address only on startup
+[public-ip]
+command=echo  `wget --no-proxy -qO - icanhazip.com|awk '{print $0}'`
+interval=600
+color=#ca1852
+
+[ip]
+command=echo   `~/.config/i3/bin/ipspeedonly.sh enp5s0`
+interval=once
+color=#91E78B
+
+[i3volume]
+label= 
+command=~/.config/i3-volume/volume output i3blocks
+interval=600
+signal=10
+color=#b8bb26
+separator_block_width=10
+markup=pango
+
+[disk]
+label= Free / 
+instance=/
+interval=300
+color=#f42f90
