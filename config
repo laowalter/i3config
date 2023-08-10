@@ -20,6 +20,8 @@ workspace 7 output DP-2
 workspace 8 output DP-2
 workspace 9 output DP-2
 workspace clock output DP-2
+
+
 # set background
 exec --no-startup-id ~/.config/i3/bin/update_wallpaper.sh
 
@@ -30,11 +32,12 @@ exec --no-startup-id ~/.config/i3/startup/bluetooth.sh
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 8
-font pango:Terminus 11
+# font pango:Terminus 16
 # font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 11
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 11
 
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -50,7 +53,15 @@ bindsym $mod+Shift+s exec --no-startup-id "sudo a2ram"
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 #exec --no-startup-id nm-applet
- 
+
+# Enabling “Smart Gaps” means no gaps will be shown when there is
+# precisely one window or split container on the workspace.
+# inverse_outer only enables outer gaps when there is exactly one
+# window or split container on the workspace.
+# smart_gaps on|off|inverse_outer
+smart_gaps on
+gaps inner 3px 
+gaps outer 0px
 # Enable compton
 exec --no-startup-id compton -b
 
@@ -94,10 +105,10 @@ bindsym $mod+c exec "rofi -show calc -modi calc -no-show-match -no-sort -theme p
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+# bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # # alternatively, you can use the cursor keys:
 bindsym $mod+Up focus up
@@ -162,12 +173,12 @@ set $ws9 "9"
 set $ws0 "0"
 
 # Turn off window title bar
-default_border pixel 1
+default_border pixel 2
 # default_border none
 default_floating_border pixel 1
 
-
-exec --no-startup-id  i3-msg 'workspace clock; exec ~/.config/i3/bin/cairo-clock.sh'
+# exec --no-startup-id  i3-msg 'workspace clock; exec ~/.config/i3/bin/cairo-clock.sh'
+exec --no-startup-id  exec '~/.config/i3/bin/cairo-clock.sh'
 exec --no-startup-id  i3-msg 'workspace 6:Local; exec firefox --no-remote -p local'
 exec --no-startup-id  i3-msg 'workspace 7:Flee; exec firefox --no-remote -p flee'
 exec --no-startup-id  i3-msg 'workspace 8:Safer; exec firefox --no-remote -p safer'
@@ -258,6 +269,19 @@ mode "resize" {
 
 bindsym $mod+Shift+r mode "resize"
 
+# shutdown suspend .....
+mode "exit: [l]ogout, [s]uspend, [r]eboot, [h]halt" {
+
+  bindsym l exec i3-msg exit
+  bindsym r exec sudo shutdown -r now
+  bindsym s exec sudo s2ram
+  bindsym h exec sudo shutdown -h now
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+bindsym $mod+Shift+x mode "exit: [l]ogout, [s]uspend, [r]eboot, [s]hutdown"
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -265,9 +289,22 @@ bar {
         # hidden_state hide
         # modifier Mod4
         output DP-0
-        font pango: Terminus, FontAwesome5Free
+        font pango: Terminus, FontAwesome5Free 14
         status_command i3blocks -c ~/.config/i3/i3blocks/config_bar1
         position top 
+        colors{   
+                background #000000
+                statusline #ffffff
+                separator #666666
+
+                focused_workspace  #4c7899 #285577 #ffffff
+                active_workspace   #333333 #5f676a #ffffff
+                inactive_workspace #33333  #222222 #888888
+                urgent_workspace   #2f343a #900000 #ffffff
+                binding_mode       #2f343a #900000 #ffffff
+
+
+        }
 }
 
 bar {

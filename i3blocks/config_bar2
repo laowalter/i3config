@@ -10,7 +10,6 @@
 separator=true
 separator_block_width=20
 command=/usr/libexec/i3blocks/$BLOCK_NAME
-separator=true
 border_top=0
 border_left=0
 border_right=0

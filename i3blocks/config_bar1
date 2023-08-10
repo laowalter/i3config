@@ -10,7 +10,6 @@
 separator=true
 separator_block_width=20
 command=/usr/libexec/i3blocks/$BLOCK_NAME
-separator=true
 border_top=0
 border_left=0
 border_right=0
@@ -20,7 +19,7 @@ only_on_workspace=1
 [time]
 # markup=pango //for big/small font
 # command=date '+<big>%H</big>:%M<small>:%S</small>'
-command=echo  `LC_ALL="zh_CN.UTF-8" date '+%b%d日 (%A)   %H:%M:%S'`
+command=echo  `LC_ALL="zh_CN.UTF-8" date '+%b%d日 %A   %H:%M:%S'`
 interval=1
 color=#ff7f50
 
@@ -33,7 +32,7 @@ interval=3600
 color=#5ea6e6
 
 [aqi]
-command=echo  `~/.config/i3/bin/aqi awk '{print $1 $4$5}'`
+command=echo  `~/.config/i3/bin/aqi| awk '{print $1 " ("$5")"}'`
 interval=300
 color=#50cf28
 
