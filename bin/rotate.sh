@@ -47,7 +47,7 @@ then
 else
   echo "Normal convert to Rotated"
   # --panning 0x0 remove the gap between to screen after rotated.
-  eval "/usr/bin/xrandr --output DP-0 --rotate left --panning 0x0"
+  eval "/usr/bin/xrandr --output DP-0 --rotate left  --panning 0x0"
   eval "/usr/bin/feh --bg-scale ${v_path}  --bg-scale ${h_path_1}"
 fi
 

@@ -179,6 +179,7 @@ default_floating_border pixel 1
 
 # exec --no-startup-id  i3-msg 'workspace clock; exec ~/.config/i3/bin/cairo-clock.sh'
 exec --no-startup-id  exec '~/.config/i3/bin/cairo-clock.sh'
+exec --no-startup-id  i3-msg 'workspace 5:Tor; exec cd ~/.bin/tor-browser&& ./start-tor-browser.desktop'
 exec --no-startup-id  i3-msg 'workspace 6:Local; exec firefox --no-remote -p local'
 exec --no-startup-id  i3-msg 'workspace 7:Flee; exec firefox --no-remote -p flee'
 exec --no-startup-id  i3-msg 'workspace 8:Safer; exec firefox --no-remote -p safer'
@@ -270,17 +271,17 @@ mode "resize" {
 bindsym $mod+Shift+r mode "resize"
 
 # shutdown suspend .....
-mode "exit: [l]ogout, [s]uspend, [r]eboot, [h]halt" {
+mode "exit: [l]ogout, l[o]ckscreen, [s]uspend, [r]eboot, [h]halt" {
 
-  bindsym l exec i3-msg exit
+  bindsym l exec i3-msg exit 
+  bindsym o exec "/usr/bin/i3lock-fancy-dualmonitor"
   bindsym r exec sudo shutdown -r now
   bindsym s exec sudo s2ram
   bindsym h exec sudo shutdown -h now
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
-bindsym $mod+Shift+x mode "exit: [l]ogout, [s]uspend, [r]eboot, [s]hutdown"
-
+bindsym $mod+Shift+x mode "exit: [l]ogout, l[o]ckscreen, [s]uspend, [r]eboot, [h]halt"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
