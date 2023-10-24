@@ -15,10 +15,23 @@ set $mod1 Mod1
 
 # set workspace position
 workspace 1 output DP-0
-workspace 6 output DP-2
-workspace 7 output DP-2
+workspace 2 output DP-0
+workspace 3 output DP-0
+workspace 4 output DP-0
+workspace 5 output DP-0
+workspace 6 output DP-0
+workspace Tor output DP-0
+workspace 7 output DP-0
 workspace 8 output DP-2
 workspace 9 output DP-2
+workspace 0 output DP-2
+workspace Hide output DP-2
+workspace AI output DP-2
+workspace Flee output DP-2
+workspace Local output DP-2
+workspace Safer output DP-2
+
+
 workspace clock output DP-2
 
 
@@ -88,6 +101,8 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+
+bindsym $mod+Shift+n exec "xterm -e nnn $"
 
 
 # vnpy need these two shortcut
@@ -178,19 +193,22 @@ default_border pixel 2
 default_floating_border pixel 1
 
 # exec --no-startup-id  i3-msg 'workspace clock; exec ~/.config/i3/bin/cairo-clock.sh'
-exec --no-startup-id  exec '~/.config/i3/bin/cairo-clock.sh'
-exec --no-startup-id  i3-msg 'workspace 5:Tor; exec cd ~/.bin/tor-browser&& ./start-tor-browser.desktop'
-exec --no-startup-id  i3-msg 'workspace 6:Local; exec firefox --no-remote -p local'
-exec --no-startup-id  i3-msg 'workspace 7:Flee; exec firefox --no-remote -p flee'
-exec --no-startup-id  i3-msg 'workspace 8:Safer; exec firefox --no-remote -p safer'
-exec --no-startup-id  i3-msg 'workspace 9:AI; exec firefox --no-remote -p ai'
+exec --no-startup-id  i3-msg 'workspace Hide; exec ~/.config/i3/bin/cairo-clock.sh'
+exec --no-startup-id  i3-msg 'workspace Tor; exec cd ~/.bin/tor-browser&& ./start-tor-browser.desktop'
+exec --no-startup-id  i3-msg 'workspace Local; exec firefox --no-remote -p local'
+exec --no-startup-id  i3-msg 'workspace Flee; exec firefox --no-remote -p flee'
+exec --no-startup-id  i3-msg 'workspace Safer; exec firefox --no-remote -p safer'
+exec --no-startup-id  i3-msg 'workspace AI; exec firefox --no-remote -p ai'
 
 
 # lock screen
 bindsym $mod+Ctrl+BackSpace exec "/usr/bin/i3lock-fancy-dualmonitor"
+
 # next prev workspace
 bindsym $mod+Right workspace next
 bindsym $mod+Left workspace prev
+bindsym $mod+n workspace next_on_output
+
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -239,18 +257,15 @@ bindsym --release $mod+Ctrl+Shift+p exec "~/.config/i3/bin/screenshot-i3.sh ~/.s
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 # bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 1 px or 1 ppt
         bindsym semicolon resize grow width 1 px or 1 ppt
         bindsym k resize grow height 1 px or 1 ppt
@@ -273,11 +288,11 @@ bindsym $mod+Shift+r mode "resize"
 # shutdown suspend .....
 mode "exit: [l]ogout, l[o]ckscreen, [s]uspend, [r]eboot, [h]halt" {
 
-  bindsym l exec i3-msg exit 
+  bindsym l exec "i3-msg exit"
   bindsym o exec "/usr/bin/i3lock-fancy-dualmonitor"
-  bindsym r exec sudo shutdown -r now
-  bindsym s exec sudo s2ram
-  bindsym h exec sudo shutdown -h now
+  bindsym r exec "sudo shutdown -r now"
+  bindsym s exec "sudo s2ram"
+  bindsym h exec "sudo shutdown -h now"
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
