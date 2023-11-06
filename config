@@ -102,7 +102,7 @@ bindsym $mod+Shift+q kill
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 
-bindsym $mod+Shift+n exec "xterm -e nnn $"
+bindsym $mod+Shift+n exec "kitty -e ~/.config/i3/bin/nnn.sh"
 
 
 # vnpy need these two shortcut
