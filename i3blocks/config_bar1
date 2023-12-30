@@ -28,7 +28,7 @@ color=#ff7f50
 # REF https://github.com/chubin/wttr.in
 # command=echo  `~/.config/i3/bin/wttr`
 command=echo  `~/.config/i3/bin/newweather.sh`
-interval=3600
+interval=600
 color=#5ea6e6
 
 [aqi]
