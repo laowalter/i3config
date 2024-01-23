@@ -27,11 +27,12 @@ workspace 0 output DP-2
 workspace Tor output DP-0
 workspace Sound output DP-0
 # workspace Hide output DP-2
-workspace AI output DP-2
+workspace Ai output DP-2
 workspace Flee output DP-2
 workspace Local output DP-2
 workspace Safer output DP-2
 workspace Clock output DP-2
+workspace Webui output DP-2
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -45,7 +46,6 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws0 "0"
-set $wsa "Sound"
 
 # set background
 exec --no-startup-id ~/.config/i3/bin/update_wallpaper.sh
@@ -98,7 +98,6 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
  
@@ -170,18 +169,22 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-# bindsym $mod+d focus child
+bindsym $mod+d focus child
 
-# Assign Workspaces:
-assign [class="Pulseeffects"] $wsa
+# Assign Workspaces name:
+for_window [class="Pulseeffects"] move container to workspace Sound, focus
+for_window [class="webui"] move container to workspace Webhui, focus
+for_window [class="Geeqie"] move container to workspace Geeqie, focus
 
 # focus 
-bindsym $mod+Tab exec --no-startup-id "rofi -show window"
+no_focus [class="tabbed"]
+# focus_on_window_activation none
 
 # browser rofi
-bindsym $mod+Shift+f exec --no-startup-id "rofi -show file-browser-extended"
+bindsym $mod+Tab exec --no-startup-id "/usr/bin/rofi -show window"
+bindsym $mod+Shift+f exec --no-startup-id "/usr/bin/rofi -show file-browser-extended"
 
-
+focus_on_window_activation none
 # Turn off window title bar
 default_border pixel 2
 # default_border none
@@ -189,10 +192,10 @@ default_floating_border pixel 1
 
 exec --no-startup-id  i3-msg 'workspace Clock; exec ~/.config/i3/bin/cairo-clock.sh'
 exec --no-startup-id  i3-msg 'workspace Tor; exec cd ~/.bin/tor-browser&& ./start-tor-browser.desktop'
-exec --no-startup-id  i3-msg 'workspace Local; exec firefox --no-remote -p local'
-exec --no-startup-id  i3-msg 'workspace Flee; exec firefox --no-remote -p flee'
-exec --no-startup-id  i3-msg 'workspace Safer; exec firefox --no-remote -p safer'
-exec --no-startup-id  i3-msg 'workspace AI; exec firefox --no-remote -p ai'
+exec --no-startup-id  i3-msg 'workspace Local; exec /usr/bin/firefox --no-remote -p local'
+exec --no-startup-id  i3-msg 'workspace Flee; exec /usr/bin/firefox --no-remote -p flee'
+exec --no-startup-id  i3-msg 'workspace Safer; exec/ usr/bin/firefox --no-remote -p safer'
+exec --no-startup-id  i3-msg 'workspace Ai; exec /usr/bin/firefox --no-remote -p ai'
 
 
 # lock screen

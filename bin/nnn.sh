@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #nnn
-export NNN_PLUG='l:launch;j:autojump;f:finder;o:fzopen;p:mocq;d:diffs;t:nmount;v:imgview;i:cdonquit;'
+export NNN_PLUG='l:launch;j:autojump;f:finder;o:fzopen;p:preview-tabbed;v:imgview;i:cdonquit;z:dragdrop'
 export VISUAL="nvim"
 export NNN_TRASH=1
 
@@ -17,4 +17,4 @@ nnn_cd()
 }
 
 trap nnn_cd EXIT
-nnn -e
+nnn -ae
