@@ -107,9 +107,7 @@ bindsym $mod+x exec "LC_CTYPE=zh_CN.UTF-8 xterm -uc"
 # kill focused window
 bindsym $mod+Shift+q kill
 
-
-bindsym $mod+Shift+n exec "kitty -e ~/.config/i3/bin/nnn.sh"
-
+bindsym $mod+Shift+n exec "kitty --name NNN -e ~/.config/i3/bin/nnn.sh"
 
 # vnpy need these two shortcut
 bindsym $mod+d exec --no-startup-id "~/work/tools/draw2"
@@ -168,17 +166,24 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-bindsym $mod+d focus child
-
 # Assign Workspaces name:
 for_window [class="Pulseeffects"] move container to workspace Sound, focus
-for_window [class="webui"] move container to workspace Webhui, focus
+for_window [class="Webui"] move container to workspace Webhui, focus
 for_window [class="Geeqie"] move container to workspace Geeqie, focus
+for_window [class="Ai"] move container to workspace Ai, focus
+for_window [class="Local"] move container to workspace Local, focus
+for_window [class="Flee"] move container to workspace Flee, focus
+for_window [class="Safer"] move container to workspace Safer, focus
+for_window [instance="NNN"] move container to workspace nnn, focus
+for_window [class="Gimp"] move container to workspace gimp, focus
+for_window [class="org-knopflerfish-framework-BundleThread"] move container to workspace Freeplane, focus
+for_window [class="Tor Browser"] move container to workspace Tor, focus
+for_window [instance="libreoffice"] move container to workspace Office, focus
+for_window [instance="Google Earth Pro"] move container to workspace Earth, focus
+for_window [instance="Shotcut"] move container to workspace Shotcut, focus
 
 # focus 
 no_focus [class="tabbed"]
-# focus_on_window_activation none
 
 # browser rofi
 bindsym $mod+Tab exec --no-startup-id "/usr/bin/rofi -show window"
