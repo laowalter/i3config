@@ -17,6 +17,12 @@ border_bottom=4
 only_on_workspace=1
 
 
+[time]
+# markup=pango //for big/small font
+# command=date '+<big>%H</big>:%M<small>:%S</small>'
+command=echo `date '+%H:%M:%S'`
+interval=1
+color=#ff7f50
 [temperature]
 #command=echo ""  `sensors |grep -i package | awk '{print $4 }'`,`sensors |grep -i edge| awk '{print $2}'`
 command=echo ""  `sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`,` nvidia-smi | grep -i 370W|awk '{print $3}'|rev |cut -c 2-|rev`°C

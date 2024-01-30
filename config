@@ -180,7 +180,7 @@ for_window [class="org-knopflerfish-framework-BundleThread"] move container to w
 for_window [class="Tor Browser"] move container to workspace Tor, focus
 for_window [instance="libreoffice"] move container to workspace Office, focus
 for_window [instance="Google Earth Pro"] move container to workspace Earth, focus
-for_window [instance="Shotcut"] move container to workspace Shotcut, focus
+for_window [class="Shotcut"] move container to workspace Shotcut, focus
 
 # focus 
 no_focus [class="tabbed"]
@@ -195,7 +195,7 @@ default_border pixel 2
 # default_border none
 default_floating_border pixel 1
 
-exec --no-startup-id  i3-msg 'workspace Clock; exec ~/.config/i3/bin/cairo-clock.sh'
+# exec --no-startup-id  i3-msg 'workspace Clock; exec ~/.config/i3/bin/cairo-clock.sh'
 exec --no-startup-id  i3-msg 'workspace Tor; exec cd ~/.bin/tor-browser&& ./start-tor-browser.desktop'
 exec --no-startup-id  i3-msg 'workspace Local; exec /usr/bin/firefox --no-remote -p local'
 exec --no-startup-id  i3-msg 'workspace Flee; exec /usr/bin/firefox --no-remote -p flee'
