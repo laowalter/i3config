@@ -318,11 +318,9 @@ bar {
 
                 focused_workspace  #4c7899 #285577 #ffffff
                 active_workspace   #333333 #5f676a #ffffff
-                inactive_workspace #33333  #222222 #888888
+                inactive_workspace #222222 #000002 #f888f8
                 urgent_workspace   #2f343a #900000 #ffffff
                 binding_mode       #2f343a #900000 #ffffff
-
-
         }
 }
 
@@ -335,4 +333,16 @@ bar {
         font pango: Terminus, Font Awesome 6 Free Bold 11
         status_command i3blocks -c ~/.config/i3/i3blocks/config_bar2
         position top
+
+        colors{   
+                background #000000
+                statusline #ffffff
+                separator #666666
+
+                focused_workspace  #4c7899 #285577 #ffffff
+                active_workspace   #333333 #5f676a #ffffff
+                inactive_workspace #222222 #000002 #f888f8
+                urgent_workspace   #2f343a #900000 #ffffff
+                binding_mode       #2f343a #900000 #ffffff
+        }
 }

@@ -61,7 +61,7 @@ separator_block_width=10
 markup=pango
 
 [disk]
-label= Free / 
+label= Free 
 instance=/
 interval=300
 color=#f42f90
