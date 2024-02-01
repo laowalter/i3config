@@ -5,19 +5,8 @@
 #
 #     https://vivien.github.io/i3blocks
 
-
-# Global properties
-# separator=t4rue
-# separator_block_width=20
-# command=/usr/libexec/i3blocks/$BLOCK_NAME
-# border_top=0
-# border_left=0
-# border_right=0
-# border_bottom=4
-# only_on_workspace=1
-
 [date]
-command=echo `date '+<span font="Regular,8"  background="#000000">%b %d</span><span foreground="#50cf28" font="8"> %A </span>'`
+command=echo `date '+<span font="Regular,8"  background="#000000">%b %_d</span><span foreground="#50cf28" font="8"> %A </span>'`
 interval=1
 color=#ff7f50
 markup=pango
