@@ -7,14 +7,14 @@
 
 
 # Global properties
-separator=true
-separator_block_width=20
-command=/usr/libexec/i3blocks/$BLOCK_NAME
-border_top=0
-border_left=0
-border_right=0
-border_bottom=4
-only_on_workspace=1
+# separator=true
+# separator_block_width=20
+# command=/usr/libexec/i3blocks/$BLOCK_NAME
+# border_top=0
+# border_left=0
+# border_right=0
+# border_bottom=4
+# only_on_workspace=1
 
 [time]
 # markup=pango //for big/small font

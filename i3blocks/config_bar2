@@ -16,15 +16,18 @@
 # border_bottom=4
 # only_on_workspace=1
 
-
-[time]
-# markup=pango //for big/small font
-#
-# command=echo `date '+<big>%H:%M</big>:%S'`
-command=echo `date '+<span font="bold,13"  background="#000000">%H:%M</span><span font="8">:%S</span>'`
+[date]
+command=echo `date '+<span font="Regular,8"  background="#000000">%b %d</span><span foreground="#50cf28" font="8"> %A </span>'`
 interval=1
 color=#ff7f50
 markup=pango
+
+[time]
+command=echo `date '+<span font="bold,14"  background="#000000">%H:%M</span><span font="8">:%S </span>'`
+interval=1
+color=#ff7f50
+markup=pango
+
 [temperature]
 # command=echo ""  `sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`,` nvidia-smi | grep -i 370W|awk '{print $3}'|rev |cut -c 2-|rev`°C
 command=echo `sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`,` nvidia-smi | grep -i 370W|awk '{print $3}'|rev |cut -c 2-|rev`°C
@@ -36,7 +39,7 @@ interval=30
 command=echo `free -mh | awk '{print $3}' | tail -2 | head -1`/`free -mh | awk '{print $2}' | tail -2 | head -1`
 color=#12b4f6
 
-[cpuload]
+[cpu-load]
 command=uptime|awk '{print  $(NF-2) $(NF-1) $NF}'
 interval=60
 color=#f22d0b
@@ -49,7 +52,7 @@ command=echo  `wget --no-proxy -qO - icanhazip.com|awk '{print $0}'`
 interval=600
 color=#ca1852
 markup=pango
-#
+ 
 # [ip]
 # command=echo   `~/.config/i3/bin/ipspeedonly.sh enp5s0`
 # interval=once
