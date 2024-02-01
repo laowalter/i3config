@@ -19,7 +19,7 @@ only_on_workspace=1
 
 [time]
 # markup=pango //for big/small font
-# command=date '+<big>%H</big>:%M<small>:%S</small>'
+# command=echo `date '+<big>%H</big>:%M<small>:%S</small>'`
 command=echo `date '+%H:%M:%S'`
 interval=1
 color=#ff7f50
@@ -30,7 +30,7 @@ interval=60
 color=#e65ea6
 
 [memory]
-label=  (used): 
+label=(used):
 interval=30
 command=echo `free -mh | awk '{print $3}' | tail -2 | head -1`/`free -mh | awk '{print $2}' | tail -2 | head -1`
 color=#12b4f6
@@ -45,11 +45,11 @@ color=#f22d0b
 command=echo  `wget --no-proxy -qO - icanhazip.com|awk '{print $0}'`
 interval=600
 color=#ca1852
-
-[ip]
-command=echo   `~/.config/i3/bin/ipspeedonly.sh enp5s0`
-interval=once
-color=#91E78B
+#
+# [ip]
+# command=echo   `~/.config/i3/bin/ipspeedonly.sh enp5s0`
+# interval=once
+# color=#91E78B
 
 [i3volume]
 label= 

@@ -19,7 +19,7 @@ only_on_workspace=1
 [time]
 # markup=pango //for big/small font
 # command=date '+<big>%H</big>:%M<small>:%S</small>'
-command=echo  `LC_ALL="zh_CN.UTF-8" date '+%b%d日 %A   %H:%M:%S'`
+command=echo  `LC_ALL="en_US.UTF-8" date '+%b%d %a'`
 interval=1
 color=#ff7f50
 
