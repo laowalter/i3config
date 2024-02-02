@@ -6,8 +6,8 @@
 #     https://vivien.github.io/i3blocks
 
 [date]
-command=echo `date '+<span font="Regular,8"  background="#000000">%b %_d</span><span foreground="#50cf28" font="8"> %A </span>'`
-interval=1
+command=echo `date '+<span font="Regular,7"  background="#000000">%b</span><span font="Bold,10"> %_d</span><span foreground="#50cf28" font="Bold,10"> %A </span>'`
+interval= 3600
 color=#ff7f50
 markup=pango
 
@@ -17,16 +17,20 @@ interval=1
 color=#ff7f50
 markup=pango
 
+[cpu]
+command=echo '<span font="6">usage</span>'`grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.2f%%\n", usage}'`
+interval=30
+color=#ca1852
+markup=pango
+
 [nvidia_utilization]
 command=echo '<span font="6">G:</span>'`nvidia-smi -q -d UTILIZATION | grep Gpu | awk '{print $3$4}'`,'<span font="6">M:</span>'`nvidia-smi -q -d UTILIZATION | grep -P 'Memory.*%$'|awk '{print $3$4}'`
-# command=echo '<span font="6">G:</span>'`nvidia-smi -q -d UTILIZATION | grep Gpu | awk '{print $3$4}'`'<span font="6">,M:<span>'`nvidia-smi -q -d UTILIZATION | grep -P 'Memory.*%$'|awk '{print $3$4}'`
 interval=10
 color="#91E738"
 markup=pango
 
 
 [temperature]
-# command=echo ""  `sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`,` nvidia-smi | grep -i 370W|awk '{print $3}'|rev |cut -c 2-|rev`°C
 command=echo '<span font="6">C:</span>'`sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`',<span font="6">G:</span>'`nvidia-smi -q -d TEMPERATURE|grep "GPU Current Temp"|awk '{print $5}'`°C
 interval=60
 color=#e65ea6
@@ -39,27 +43,14 @@ command=echo `free -mh | awk '{print $3}' | tail -2 | head -1`/`free -mh | awk '
 color=#12b4f6
 markup=pango
 
-[cpu-load]
-command=uptime|awk '{print  $(NF-2) $(NF-1) $NF}'
+[public-ip]
+command=echo '<span font="7">'`dig +short myip.opendns.com @resolver1.opendns.com`'</span>'
 interval=60
 color=#f22d0b
 markup=pango
 
-# Fetch the public IP address only on startup
-[public-ip]
-# label=<span font="8"></span>
-command=echo  `wget --no-proxy -qO - icanhazip.com|awk '{print $0}'`
-interval=600
-color=#ca1852
-markup=pango
- 
-# [ip]
-# command=echo   `~/.config/i3/bin/ipspeedonly.sh enp5s0`
-# interval=once
-# color=#91E78B
-
 [i3volume]
-# label=<span font="8"> </span>
+label=<span font="6"> </span>
 command=~/.config/i3/i3volume/volume output i3blocks
 interval=600
 signal=10
@@ -67,8 +58,9 @@ color=#00ff00
 separator_block_width=10
 markup=pango
 
-[disk]
-# label= Free 
-instance=/
-interval=300
-color=#f42f90
+# [disk]
+# label=<span font="8"> Free</span>
+# instance=/
+# interval=300
+# color=#f42f90
+# markup=pango

@@ -307,7 +307,7 @@ bar {
         # hidden_state hide
         # modifier Mod4
         output DP-0
-        font pango: Terminus, Font Awesome 6 Free Bold 13
+        font pango:Terminus, Font Awesome 6 Free Bold 13
         status_command i3blocks -c ~/.config/i3/i3blocks/config_bar1
         position top
 
@@ -330,7 +330,7 @@ bar {
         # modifier Mod4
         output DP-2
         # font pango: Terminus, FontAwesome5Free
-        font pango: Terminus, Font Awesome 6 Free Bold 11
+        font pango:Terminus, Font Awesome 6 Free Bold 11
         status_command i3blocks -c ~/.config/i3/i3blocks/config_bar2
         position top
 
