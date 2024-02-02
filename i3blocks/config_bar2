@@ -6,7 +6,7 @@
 #     https://vivien.github.io/i3blocks
 
 [date]
-command=echo `date '+<span font="Regular,7"  background="#000000">%b</span><span font="Bold,10"> %_d</span><span foreground="#50cf28" font="Bold,10"> %A </span>'`
+command=~/.config/i3/bin/mydate
 interval= 3600
 color=#ff7f50
 markup=pango
