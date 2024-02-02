@@ -17,16 +17,27 @@ interval=1
 color=#ff7f50
 markup=pango
 
+[nvidia_utilization]
+command=echo '<span font="6">G:</span>'`nvidia-smi -q -d UTILIZATION | grep Gpu | awk '{print $3$4}'`,'<span font="6">M:</span>'`nvidia-smi -q -d UTILIZATION | grep -P 'Memory.*%$'|awk '{print $3$4}'`
+# command=echo '<span font="6">G:</span>'`nvidia-smi -q -d UTILIZATION | grep Gpu | awk '{print $3$4}'`'<span font="6">,M:<span>'`nvidia-smi -q -d UTILIZATION | grep -P 'Memory.*%$'|awk '{print $3$4}'`
+interval=10
+color="#91E738"
+markup=pango
+
+
 [temperature]
 # command=echo ""  `sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`,` nvidia-smi | grep -i 370W|awk '{print $3}'|rev |cut -c 2-|rev`°C
-command=echo `sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`,` nvidia-smi | grep -i 370W|awk '{print $3}'|rev |cut -c 2-|rev`°C
+command=echo '<span font="6">C:</span>'`sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`',<span font="6">G:</span>'` nvidia-smi | grep -i 370W|awk '{print $3}'|rev |cut -c 2-|rev`°C
 interval=60
 color=#e65ea6
+markup=pango
 
 [memory]
+label=<span font="6">M:</span>
 interval=30
 command=echo `free -mh | awk '{print $3}' | tail -2 | head -1`/`free -mh | awk '{print $2}' | tail -2 | head -1`
 color=#12b4f6
+markup=pango
 
 [cpu-load]
 command=uptime|awk '{print  $(NF-2) $(NF-1) $NF}'
