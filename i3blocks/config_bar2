@@ -27,7 +27,7 @@ markup=pango
 
 [temperature]
 # command=echo ""  `sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`,` nvidia-smi | grep -i 370W|awk '{print $3}'|rev |cut -c 2-|rev`°C
-command=echo '<span font="6">C:</span>'`sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`',<span font="6">G:</span>'` nvidia-smi | grep -i 370W|awk '{print $3}'|rev |cut -c 2-|rev`°C
+command=echo '<span font="6">C:</span>'`sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`',<span font="6">G:</span>'`nvidia-smi -q -d TEMPERATURE|grep "GPU Current Temp"|awk '{print $5}'`°C
 interval=60
 color=#e65ea6
 markup=pango
