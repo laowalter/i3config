@@ -316,10 +316,9 @@ bar {
                 statusline #ffffff
                 separator #666666
 
-                # focused_workspace  #4c7899 #285577 #ffffff
-                focused_workspace  #143851 #285577 #ffffff
+                focused_workspace  #4c7899 #285577 #ffffff
                 active_workspace   #333333 #5f676a #ffffff
-                inactive_workspace #222222 #000002 #f888f8
+                inactive_workspace #222222 #000002 #379ce3
                 urgent_workspace   #2f343a #900000 #ffffff
                 binding_mode       #2f343a #900000 #ffffff
         }
