@@ -2,7 +2,7 @@
 # This code is used for i3block to dispay date
 color="#ffffff"
 
-if [[ $(LC_ALL=en.US.UTF-8 date +%a) == "Fri" ]]; then
+if [[ $(LC_ALL=en.US.UTF-8 date +%a) == "Sat" ]]; then
   color="#50cf28"
 fi
 

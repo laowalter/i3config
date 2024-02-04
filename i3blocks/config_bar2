@@ -58,6 +58,9 @@ color=#00ff00
 separator_block_width=10
 markup=pango
 
+[Others Just Run]
+interval = 5
+command=~/.config/i3/bin/connect_blue_device.sh > /dev/null
 # [disk]
 # label=<span font="8"> Free</span>
 # instance=/
