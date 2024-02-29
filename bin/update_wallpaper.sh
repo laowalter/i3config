@@ -20,8 +20,8 @@ randomFile(){
   picture_files=$(find $1 -type f -name "*.jpg" -o -name "*.png")
   # Split the string by space
   picture_files=(${picture_files// / })
+
   file_numbers=${#picture_files[@]}
-  # echo "$file_numbers"
   random=$((${RANDOM} % ${file_numbers}))
   random_file=${picture_files[random]}
 

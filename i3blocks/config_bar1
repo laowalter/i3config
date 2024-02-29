@@ -34,10 +34,6 @@ command=echo  `~/.config/i3/bin/aqi| awk '{print $1 " ("$5")"}'`
 interval=300
 color=#50cf28
 
-[change_wallpaper]
-command=~/.config/i3/bin/update_wallpaper.sh > /dev/null
-interval=300
-
 [restart]
 full_text=
 command=i3-msg -q restart

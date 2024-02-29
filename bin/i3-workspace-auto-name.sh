@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
+##############################################
+# Under Testing not worked yet
+# ###########################################
+
 # i3 workspace auto rename
-# author: rains31@gmail.com
-# github: https://github.com/rains31
 DISPLAY=${DISPLAY:-":0"}
 MAX_NAME_LENGTH=20
 DEBUG=false

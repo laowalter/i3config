@@ -18,20 +18,20 @@ color=#ff7f50
 markup=pango
 
 [cpu]
-command=echo '<span font="6">usage</span>'`grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.2f%%\n", usage}'`
+command=echo '<span font="6">CU:</span>'`grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.2f%%\n", usage}'`
 interval=30
 color=#ca1852
 markup=pango
 
 [nvidia_utilization]
-command=echo '<span font="6">G:</span>'`nvidia-smi -q -d UTILIZATION | grep Gpu | awk '{print $3$4}'`,'<span font="6">M:</span>'`nvidia-smi -q -d UTILIZATION | grep -P 'Memory.*%$'|awk '{print $3$4}'`
+command=echo '<span font="6">GU:</span>'`nvidia-smi -q -d UTILIZATION | grep Gpu | awk '{print $3$4}'`,'<span font="6">GM:</span>'`nvidia-smi -q -d UTILIZATION | grep -P 'Memory.*%$'|awk '{print $3$4}'`
 interval=10
 color="#91E738"
 markup=pango
 
 
 [temperature]
-command=echo '<span font="6">C:</span>'`sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c 2-`',<span font="6">G:</span>'`nvidia-smi -q -d TEMPERATURE|grep "GPU Current Temp"|awk '{print $5}'`°C
+command=echo '<span font="6">C:</span>'`sensors |grep -i 'Package id' | awk '{print $4 }'|cut -c2-3`'<span font="8">°C</span>','<span font="6">G:</span>'`nvidia-smi -q -d TEMPERATURE|grep "GPU Current Temp"|awk '{print $5}'`'<span font="8">°C</span>'
 interval=60
 color=#e65ea6
 markup=pango
@@ -39,7 +39,8 @@ markup=pango
 [memory]
 label=<span font="6">M:</span>
 interval=30
-command=echo `free -mh | awk '{print $3}' | tail -2 | head -1`/`free -mh | awk '{print $2}' | tail -2 | head -1`
+# command=echo `free -mh | awk '{print $3}' | tail -2 | head -1`/`free -mh | awk '{print $2}' | tail -2 | head -1`
+command=echo `free -mh | awk '{print substr($3, 1, length($3)-1)}' | tail -2 | head -1`/`free -mh | awk '{print substr($2, 1, length($2)-1)}' | tail -2 | head -1`
 color=#12b4f6
 markup=pango
 
@@ -58,9 +59,14 @@ color=#00ff00
 separator_block_width=10
 markup=pango
 
-[Others Just Run]
-interval = 5
+[check_bluetooth_connection]
+interval = 10
 command=~/.config/i3/bin/connect_blue_device.sh > /dev/null
+
+[change_wallpaper]
+interval=300
+command=~/.config/i3/bin/update_wallpaper.sh > /dev/null
+
 # [disk]
 # label=<span font="8"> Free</span>
 # instance=/
