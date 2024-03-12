@@ -102,7 +102,7 @@ floating_modifier $mod
 # bindsym $mod+Return exec i3-sensible-terminal
  
 bindsym $mod+t exec --no-startup-id "~/.config/i3/bin/floatKitty.sh"
-bindsym $mod+Return exec "GLFW_IM_MODULE=ibus kitty"
+bindsym $mod+Return exec "GLFW_IM_MODULE=ibus kitty -c ~/.config/kitty/kitty.conf"
 bindsym $mod+x exec "LC_CTYPE=zh_CN.UTF-8 xterm -uc"
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -168,7 +168,7 @@ bindsym $mod+a focus parent
 
 # Assign Workspaces name:
 for_window [class="Pulseeffects"] move container to workspace Sound, focus
-# for_window [class="Webui"] move container to workspace Webhui, focus
+for_window [class="Webui"] move container to workspace Webhui, focus
 # for_window [class="Geeqie"] move container to workspace Geeqie, focus
 for_window [class="Ai"] move container to workspace Ai, focus
 for_window [class="Local"] move container to workspace Local, focus
@@ -293,7 +293,7 @@ mode "exit: [l]ogout, l[o]ckscreen, [s]uspend, [r]eboot, [h]halt" {
   bindsym l exec "i3-msg exit"
   bindsym o exec "/usr/bin/i3lock-fancy-dualmonitor"
   bindsym r exec "sudo shutdown -r now"
-  bindsym s exec "sudo s2ram"
+  bindsym s exec "sudo s2ram -a3 -r"
   bindsym h exec "sudo shutdown -h now"
   bindsym Escape mode "default"
   bindsym Return mode "default"

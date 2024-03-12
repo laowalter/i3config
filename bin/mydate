@@ -13,4 +13,4 @@ fi
 month=$(LC_ALL=en.US.UTF-8 date +%b)
 day_of_month=$(LC_ALL=en.US.UTF-8 date +%_d)
 current_date=$(LC_ALL=en.US.UTF-8 date +%A)  # Capture day for comparison
-echo "<span font=\"Regular,7\" background=\"#000000\">$month</span><span font=\"Bold,10\">$day_of_month</span><span foreground=\"$color\" font=\"Bold,10\">  $current_date  </span>"
+echo "<span font=\"Regular,7\" background=\"#000000\">$month</span><span font=\"Bold,10\">$day_of_month</span><span foreground=\"$color\" font=\"Bold,9\">  $current_date  </span>"
